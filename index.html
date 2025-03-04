@@ -1,22 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- Hotjar Tracking Code for Site 5325311 (name missing) -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:5325311,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин Ручек</title>
+    <title>Pen Store</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,38 +35,94 @@
             margin-bottom: 10px;
         }
     </style>
+    <!-- Google Tag Manager -->
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','YOUR_GTM_ID');
+    </script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Hotjar Tracking Code -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <!-- End Hotjar Tracking Code -->
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=YOUR_GTM_ID"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <header>
-        <h1>Магазин Ручек</h1>
+        <h1>Pen Store</h1>
     </header>
     <nav>
-        <h3>Категории</h3>
+        <h3>Categories</h3>
         <ul>
-            <li><a href="#">Все ручки</a></li>
-            <li><a href="#">Шариковые ручки</a></li>
-            <li><a href="#">Перьевые ручки</a></li>
-            <li><a href="#">Гелевые ручки</a></li>
-            <li><a href="#">Авторучки</a></li>
+            <li><a href="#">All Pens</a></li>
+            <li><a href="#">Ballpoint Pens</a></li>
+            <li><a href="#">Fountain Pens</a></li>
+            <li><a href="#">Gel Pens</a></li>
+            <li><a href="#">Rollerball Pens</a></li>
         </ul>
-        <h3>Сортировка по</h3>
+        <h3>Sort By</h3>
         <ul>
-            <li><a href="#">Цене</a></li>
-            <li><a href="#">Популярности</a></li>
-            <li><a href="#">Новизне товара</a></li>
+            <li><a href="#">Price</a></li>
+            <li><a href="#">Popularity</a></li>
+            <li><a href="#">New Arrivals</a></li>
         </ul>
     </nav>
     <main>
         <div class="product">
-            <h2>Шариковая ручка синяя</h2>
-            <p>Цена 22 р.</p>
-            <button>Купить</button>
+            <h2>Ballpoint Pen</h2>
+            <p>Price: $1.50</p>
+            <button id="btn1">Buy Now</button>
         </div>
         <div class="product">
-            <h2>Гелевая ручка</h2>
-            <p>Цена 50 р.</p>
-            <button>Купить</button>
+            <h2>Fountain Pen</h2>
+            <p>Price: $12.00</p>
+            <button id="btn2">Buy Now</button>
         </div>
     </main>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'YOUR_TRACKING_ID');
+
+    document.getElementById('btn1').addEventListener('click', function() {
+        gtag('event', 'button_click', {
+            'event_category': 'Button',
+            'event_label': 'Button 1'
+        });
+    });
+    document.getElementById('btn2').addEventListener('click', function() {
+        gtag('event', 'button_click', {
+            'event_category': 'Button',
+            'event_label': 'Button 2'
+        });
+    });
+    document.querySelectorAll('.product button').forEach((button, index) => {
+        button.addEventListener('click', function() {
+            gtag('event', 'buy_click', {
+                'event_category': 'Product',
+                'event_label': `Product ${index + 1}`
+            });
+        });
+    });
+    </script>
 </body>
 </html>
